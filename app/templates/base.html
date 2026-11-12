@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title if title else "ChineseJJTime" }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="container header-container">
+            <a href="{{ url_for('main.index') }}" class="logo">ChineseJJTime</a>
+            <nav class="main-nav" id="mainNav">
+                <a href="#about">Обо мне</a>
+                <a href="#steps">Как проходят уроки</a>
+                <a href="#courses">Направления</a>
+                <a href="#prices">Стоимость</a>
+                <a href="#faq">FAQ</a>
+                <a href="#contacts" class="btn btn-outline">Связаться</a>
+            </nav>
+        </div>
+    </header>
+
+    {% block content %}{% endblock %}
+
+    <footer class="site-footer">
+        <div class="container footer-container">
+            <div class="footer-left">
+                <a href="#" class="logo">ChineseJJTime</a>
+            </div>
+            <div class="footer-center">
+                <div class="footer-links">
+                    <a href="#about">Обо мне</a>
+                    <a href="#steps">Процесс</a>
+                    <a href="#courses">Направления</a>
+                    <a href="#faq">FAQ</a>
+                </div>
+                <p class="footer-copy">&copy; 2026 ChineseJJTime. All rights reserved.</p>
+            </div>
+            <div class="footer-right">
+                <div class="footer-social-icons">
+                    <a href="https://t.me" target="_blank">Telegram</a> &bull; 
+                    <a href="https://instagram.com" target="_blank">Instagram</a> &bull; 
+                    <a href="https://youtube.com" target="_blank">YouTube</a>
+                </div>
+                <p class="footer-support-mail">jjtime@gmail.com</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

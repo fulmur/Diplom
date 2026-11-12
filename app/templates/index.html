@@ -1,0 +1,313 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<main>
+    <section class="hero-section" style="padding: 7rem 0 5rem 0;">
+        <div class="container hero-container">
+            <h1 class="hero-title" style="color: var(--color-white); font-weight: 300;">
+                Изучение китайского языка с <span style="color: var(--color-sand); font-weight: 700;">JJTime</span>
+            </h1>
+            <p class="hero-subtitle">Индивидуальные и групповые занятия с преподавателем уровня HSK6. Выстраиваем базу с нуля, ставим произношение и готовим к языковым экзаменам.</p>
+            <div class="hero-actions">
+                <a href="#courses" class="btn btn-glass-accent">Направления</a>
+                <a href="#about" class="btn btn-outline">Обо мне</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-about" id="about">
+        <div class="container">
+            <div class="about-premium-card">
+                <div class="about-left-content">
+                    <div>
+                        <h2 class="about-card-title">О преподавателе</h2>
+                        <p class="about-card-text">Меня зовут Цзин Цзин. Я учусь на бакалавриате в Китае на китайском языке и ежедневно общаюсь в академической и бытовой среде. Прошла путь изучения языка с нуля до HSK6, поэтому знаю, какие темы вызывают трудности у русскоязычных студентов. На уроках мы подробно разбираем грамматику, отрабатываем произношение и сразу учимся применять новые слова в живой речи.</p>
+                    </div>
+                    <div class="about-metrics-row">
+                        <div class="metric-item">
+                            <span class="metric-num">HSK 6</span>
+                            <span class="metric-lbl">Высший уровень</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="metric-num">Учеба в КНР</span>
+                            <span class="metric-lbl">Обучение на китайском</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-photo-placeholder">
+                    <span>Место для фото преподавателя</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-steps" id="steps">
+        <div class="container">
+            <h2 class="section-title-left">Формат и методика</h2>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-content">
+                        <h4>Системный подход</h4>
+                        <p>Объясняю логику грамматики и структуру иероглифов простым языком. Закрепляем каждую тему через аудирование и разговорную практику на уроке.</p>
+                    </div>
+                    <span class="step-num">01</span>
+                </div>
+                <div class="step-card">
+                    <div class="step-content">
+                        <h4>Современный язык</h4>
+                        <p>Изучаем не только лексику из учебников, но и живую речь. Разбираем реальные диалоги, актуальные выражения из китайских соцсетей и культурные особенности общения.</p>
+                    </div>
+                    <span class="step-num">02</span>
+                </div>
+                <div class="step-card">
+                    <div class="step-content">
+                        <h4>Все материалы включены</h4>
+                        <p>Покупать учебники не нужно. После каждого урока вы получаете готовый конспект, подборку лексики и интерактивные карточки для повторения слов.</p>
+                    </div>
+                    <span class="step-num">03</span>
+                </div>
+            </div>
+        </div>
+    </section>
+  
+    <section class="section-courses" id="courses">
+        <div class="container">
+            <h2 class="section-title-left">Направления обучения</h2>
+            <div class="courses-grid">
+                {% if courses %}
+                    {% for course in courses %}
+                        <div class="course-card">
+                            <div>
+                                <h3>{{ course.title }}</h3>
+                                <p>{{ course.description }}</p>
+                            </div>
+                            <span class="course-badge">{{ course.badge }}</span>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <div class="course-card">
+                        <div>
+                            <h3>Начальный уровень</h3>
+                            <p>Постановка произношения и тонов с первых занятий. Освоение базовой грамматики, правил написания иероглифов и лексики для повседневного общения.</p>
+                        </div>
+                        <span class="course-badge">HSK 1-2</span>
+                    </div>
+                    <div class="course-card">
+                        <div>
+                            <h3>Средний уровень</h3>
+                            <p>Расширение словарного запаса и изучение сложных грамматических конструкций. Практика свободного общения на бытовые и рабочие темы, подготовка к экзаменам.</p>
+                        </div>
+                        <span class="course-badge">HSK 3-4</span>
+                    </div>
+                    <div class="course-card">
+                        <div>
+                            <h3>Продвинутый уровень</h3>
+                            <p>Работа с неадаптированными текстами, новостями и видео носителей. Разбор тонкостей лексики, дискуссии на сложные темы и подготовка к учебе или работе в Китае.</p>
+                        </div>
+                        <span class="course-badge">HSK 5-6</span>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+    <section class="section-prices" id="prices">
+        <div class="container">
+            <h2 class="section-title-left">Формат и стоимость</h2>
+            <div class="prices-grid">
+                <div class="price-card">
+                    <div>
+                        <h3>Индивидуально</h3>
+                        <p class="price-desc">Персональная траектория под ваши конкретные цели и темп</p>
+                        <div class="price-value">2 000 ₽ <span>/ 60 минут</span></div>
+                    </div>
+                    <a href="#contacts" class="btn btn-outline">Выбрать формат</a>
+                </div>
+                <div class="price-card featured">
+                    <span class="price-pop-badge">Рекомендуется</span>
+                    <div>
+                        <h3>Мини-группы</h3>
+                        <p class="price-desc">Интерактивная языковая практика в командах до 4 человек</p>
+                        <div class="price-value">1 000 ₽ <span>/ 60 минут</span></div>
+                    </div>
+                    <a href="#contacts" class="btn btn-glass-accent">Вступить в группу</a>
+                </div>
+            </div>
+            <div class="discount-container" style="margin-top: 5rem; display: block; padding: 3.5rem 2.5rem;">
+                <div class="discount-info" style="margin-bottom: 2.5rem; text-align: center;">
+                    <h4 style="font-size: 1.6rem; font-weight: 300; letter-spacing: -0.5px; color: var(--color-white);">Рассчитать стоимость обучения</h4>
+                    <p style="color: var(--color-blue); font-size: 0.95rem; margin-top: 0.3rem;">Введите желаемое количество занятий для автоматического расчета пакета</p>
+                </div>
+
+                <div style="background: rgba(234, 227, 210, 0.03); border: 1px dashed rgba(234, 227, 210, 0.2); padding: 1rem 1.5rem; border-radius: 8px; margin-bottom: 2.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem;">
+                    <p style="font-size: 0.9rem; font-weight: 300; color: var(--color-white); margin: 0;">Первое знакомство и определение уровня — бесплатно</p>
+                    <span style="font-size: 0.7rem; padding: 0.3rem 0.6rem; background: var(--color-sand); color: var(--bg-main); border-radius: 4px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap;">Пробный урок 0 ₽</span>
+                </div>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2.5rem; align-items: start;">
+
+                    <div style="display: flex; flex-direction: column; gap: 1.8rem;">
+                        <div>
+                            <label style="display: block; font-size: 0.75rem; color: rgba(253,253,251,0.4); text-transform: uppercase; margin-bottom: 0.6rem; letter-spacing: 1px; font-weight: 600;">Формат обучения</label>
+                            <div style="position: relative; width: 100%;">
+                                                           <div style="position: relative; width: 100%;">
+                                <select id="calcFormat" style="width: 100%; padding: 1rem 2.5rem 1rem 1rem; background: #131A17; border: var(--border-glass); border-radius: 8px; color: var(--color-white); font-family: var(--font-main); font-size: 0.95rem; outline: none; cursor: pointer; appearance: none; -webkit-appearance: none; -moz-appearance: none;">
+                                    {% if courses %}
+                                        {% for course in courses %}
+                                            <option value="{{ course.price if course.price else 2000 }}">
+                                                {{ course.title }} ({{ course.price if course.price else 2000 }} ₽/ур)
+                                            </option>
+                                        {% endfor %}
+                                    {% else %}
+   
+                                        <option value="2000">Индивидуальные занятия (2 000 ₽)</option>
+                                        <option value="1000">Занятия в мини-группе (1 000 ₽)</option>
+                                    {% endif %}
+                                </select>
+                                <div style="position: absolute; top: 50%; right: 1rem; transform: translateY(-50%); color: rgba(253,253,251,0.4); pointer-events: none; font-size: 0.8rem;">▼</div>
+                            </div>
+
+                                <div style="position: absolute; top: 50%; right: 1rem; transform: translateY(-50%); color: rgba(253,253,251,0.4); pointer-events: none; font-size: 0.8rem;">▼</div>
+                            </div>
+                        </div>
+                        <div>
+                            <label style="display: block; font-size: 0.75rem; color: rgba(253,253,251,0.4); text-transform: uppercase; margin-bottom: 0.6rem; letter-spacing: 1px; font-weight: 600;">Количество занятий</label>
+                            <input type="number" id="calcLessonsInput" value="8" min="1" max="100" style="width: 100%; padding: 1rem; background: #131A17; border: var(--border-glass); border-radius: 8px; color: var(--color-white); font-family: var(--font-main); font-size: 0.95rem; outline: none; appearance: textfield; -webkit-appearance: textfield; -moz-appearance: textfield;">
+                        </div>
+                   
+                        <div style="display: flex; gap: 0.8rem; margin-top: 0.2rem;">
+                            <span style="font-size: 0.75rem; padding: 0.3rem 0.6rem; background: rgba(234,227,210,0.05); border: 1px solid rgba(234,227,210,0.15); color: var(--color-sand); border-radius: 4px; font-weight: 500;">от 8 уроков: -10%</span>
+                            <span style="font-size: 0.75rem; padding: 0.3rem 0.6rem; background: rgba(234,227,210,0.05); border: 1px solid rgba(234,227,210,0.15); color: var(--color-sand); border-radius: 4px; font-weight: 500;">от 16 уроков: -15%</span>
+                        </div>
+                    </div>
+
+                                
+                    <div style="background: rgba(253, 253, 251, 0.01); border: var(--border-glass); padding: 2.2rem; border-radius: 12px; display: flex; flex-direction: column; justify-content: center; min-height: 150px;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 1rem; font-size: 0.9rem;">
+                            <span style="opacity: 0.5;">Базовая цена без скидки:</span>
+                            <span id="rawPrice" style="text-decoration: line-through; opacity: 0.4; font-weight: 500;">0 ₽</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 1.8rem; font-size: 0.9rem;">
+                            <span style="opacity: 0.5;">Действующая скидка:</span>
+                            <span id="discountBadge" style="color: var(--color-sand); font-weight: 600; background: rgba(234,227,210,0.1); padding: 0.1rem 0.5rem; border-radius: 4px;">0%</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(253, 253, 251, 0.08); padding-top: 1.2rem;">
+                            <span style="font-size: 1.05rem; font-weight: 400; opacity: 0.9;">Итоговая стоимость:</span>
+                            <span id="totalPrice" style="font-size: 2.2rem; font-weight: 700; color: var(--color-white); letter-spacing: -0.5px;">0 ₽</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const formatSelect = document.getElementById('calcFormat');
+            const lessonsInput = document.getElementById('calcLessonsInput');
+            const rawPriceEl = document.getElementById('rawPrice');
+            const discountBadgeEl = document.getElementById('discountBadge');
+            const totalPriceEl = document.getElementById('totalPrice');
+
+            function calculateLiveTotal() {
+                const basePrice = parseInt(formatSelect.value) || 0;
+                let lessonsCount = parseInt(lessonsInput.value);
+
+                if (isNaN(lessonsCount) || lessonsCount < 0) {
+                    lessonsCount = 0;
+                }
+
+                const rawPrice = basePrice * lessonsCount;
+
+                let discountPercent = 0;
+                if (lessonsCount >= 16) {
+                    discountPercent = 15;
+                } else if (lessonsCount >= 8) {
+                    discountPercent = 10;
+                }
+
+                const discountAmount = rawPrice * (discountPercent / 100);
+                const finalPrice = rawPrice - discountAmount;
+
+                if (discountPercent > 0) {
+                    rawPriceEl.textContent = rawPrice.toLocaleString('ru-RU') + ' ₽';
+                    rawPriceEl.style.visibility = 'visible';
+                    discountBadgeEl.textContent = '-' + discountPercent + '%';
+                } else {
+                    rawPriceEl.style.visibility = 'hidden';
+                    discountBadgeEl.textContent = '0%';
+                }
+
+                totalPriceEl.textContent = finalPrice.toLocaleString('ru-RU') + ' ₽';
+            }
+
+            if (formatSelect && lessonsInput) {
+                formatSelect.addEventListener('change', calculateLiveTotal);
+                lessonsInput.addEventListener('input', calculateLiveTotal);
+                lessonsInput.addEventListener('change', calculateLiveTotal);
+                
+                calculateLiveTotal();
+            }
+        });
+    </script>
+
+    <section class="section-reviews">
+        <div class="container">
+            <h2 class="section-title-left">Отзывы учеников</h2>
+            <div class="reviews-scroll-container">
+                <div class="review-premium-card">
+                    <div>
+                        <span class="review-hashtag">hsk 3-4</span>
+                        <h4 class="review-user-name">Мирон</h4>
+                        <p class="review-user-status">Подготовка к стажировке • Мини-группа</p>
+                    </div>
+                    <p class="review-text-content">-</p>
+                    <span class="review-date">12.05.2026</span>
+                </div>
+                <div class="review-premium-card">
+                    <div>
+                        <span class="review-hashtag">hsk 1-2 с нуля</span>
+                        <h4 class="review-user-name">Агата</h4>
+                        <p class="review-user-status">Для себя и путешествий • Индивидуально</p>
+                    </div>
+                    <p class="review-text-content">-</p>
+                    <span class="review-date">16.04.2026</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-faq" id="faq">
+        <div class="container">
+            <h2 class="section-title-left">Частые вопросы</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h4>Сколько времени нужно, чтобы освоить базу?</h4>
+                    <p>При занятиях два раза в неделю выйти на уверенный базовый уровень и подготовиться к HSK 1–2 можно за 3–4 месяца. Многое зависит от регулярности, поэтому важно выполнять небольшие домашние задания между уроками.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Как совмещать занятия с работой или учебой?</h4>
+                    <p>График подбирается индивидуально под ваш ритм. Уроки проходят онлайн в удобное время, а повторять слова и иероглифы можно с телефона по готовым карточкам, уделяя этому по 10–15 минут в день.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Реально ли поставить тоны без музыкального слуха?</h4>
+                    <p>Да, музыкальный слух для этого не нужен. На первых уроках мы подробно разбираем артикуляцию и тренируем произношение на слух, чтобы вы научились слышать разницу и правильно интонировать слоги.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Подойдет ли обучение, если я начинаю с нуля?</h4>
+                    <p>Конечно, большинство учеников приходят без предварительной подготовки. Мы начинаем с основ: учимся читать транскрипцию пиньинь, разбираем базовые черты иероглифов и строим первые простые фразы.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-contacts" id="contacts">
+        <div class="container contacts-wrapper">
+            <h2>Запись на занятия</h2>
+            <p>Свяжитесь со мной в удобном мессенджере. Мы обсудим ваши задачи в китайском, подберем подходящую программу и договоримся о пробном уроке.</p>
+            <div class="social-links-grid">
+                <a href="https://t.me" target="_blank" class="btn-social">Написать в Telegram</a>
+                <a href="https://instagram.com" target="_blank" class="btn-social">Профиль в Instagram</a>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}
